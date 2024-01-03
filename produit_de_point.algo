@@ -1,0 +1,33 @@
+ALGORITHM produit_De_point
+VAR
+    v1, v2: ARRAY_OF REAL[n];  // Déclaration de deux vecteurs de taille n
+    ps: REAL;  // Variable pour stocker le produit scalaire
+    i: INTEGER;
+
+PROCEDURE calculer_produit_scalaire(v1, v2: ARRAY_OF REAL[n]; OUT ps: REAL)
+VAR
+    sum: REAL;
+BEGIN
+    sum := 0;  // Initialisation de la somme
+
+    FOR i FROM 0 TO n-1 DO
+        sum := sum + v1[i] * v2[i];  // Calcul du produit scalaire
+    END_FOR
+
+    ps := sum;  
+END_PROCEDURE
+
+PROCEDURE verifier_orthogonalite(v1, v2: ARRAY_OF REAL[n])
+VAR
+    result: REAL;
+BEGIN
+    calculer_produit_scalaire(v1, v2, result);  // Appel de la fonction pour calculer le produit scalaire
+
+    IF (result = 0) THEN
+        Write("Les vecteurs sont orthogonaux.");
+    ELSE
+        Write("Les vecteurs ne sont pas orthogonaux.");
+    END_IF
+END_PROCEDURE
+BEGIN
+END

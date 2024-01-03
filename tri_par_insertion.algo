@@ -1,0 +1,23 @@
+ALGORITHM tri_par_insertion
+VAR
+    arr: ARRAY_OF INTEGER[n];  // Tableau à trier
+    i, j, key: INTEGER;
+BEGIN
+    arr := {12, 11, 13, 5, 6};
+
+    FOR i FROM 1 TO n-1 DO
+        key := arr[i];  
+        j := i - 1; 
+
+        WHILE (j >= 0 AND arr[j] > key) DO
+            arr[j + 1] := arr[j];
+            j := j - 1;
+        END_WHILE
+
+        arr[j + 1] := key;  // Insertion de la clé dans la séquence triée
+    END_FOR
+    Write("Tableau trié : ");
+    FOR i FROM 0 TO n-1 DO
+        Write(arr[i], " ");
+    END_FOR
+END
